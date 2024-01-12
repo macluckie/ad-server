@@ -1,6 +1,6 @@
 # Ad-server
 1.clone:
-https://github.com/macluckie/ad-server.git
+https://github.com/macluckie/ad-server.git  
 2. start the stack: 
 
 ```console
