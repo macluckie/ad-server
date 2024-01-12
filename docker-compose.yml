@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  redis:
+    image: "redis:latest"
+    container_name: "redis-data"
+    ports:
+      - "6379:6379"
+    # volumes:
+    #   - ./redis:/data
+    command: redis-server
+    networks:
+      - ad-network    
+
+  ad-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ad-service
+    volumes:
+      - ./ad_server:/go/src/app
+    ports:
+      - "50051:50051"
+    networks:
+      - ad-network
+
+  tracking-service:
+    build:
+      context: .
+      dockerfile: tracking.Dockerfile
+    container_name: tracking-service
+    volumes:
+      - ./tracking_impression:/go/src/app
+    ports:
+      - "50052:50052"
+    networks:
+      - ad-network     
+
+networks:
+  ad-network:
+    driver: bridge  

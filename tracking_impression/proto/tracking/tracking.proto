@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package = "test/grpc";
+import "google/protobuf/empty.proto";
+package proto;
+
+service TrackingServer {
+  rpc GetCountAd (IdAdTracked) returns (Count);
+  rpc IncrementCount (IdAdTracked) returns (google.protobuf.Empty);
+}
+
+message Count {
+  int64 count = 1;
+}
+
+message IdAdTracked {
+  string id = 1;
+}
+
