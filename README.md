@@ -13,9 +13,9 @@ protoc --go_out=./proto/ --go_opt=paths=source_relative --go-grpc_out=./proto/
 --go-grpc_opt=paths=source_relative proto/ad.proto
 
 
-The server GRPC (ad-server) is up on  localhost:50051.
-To request the server we are going to use postman.
-1. In postman import the protofile (ad.proto in ad-server). 
+The server GRPC (ad-server) is up on  localhost:50051.  
+To request the server we are going to use postman.  
+- In postman import the protofile (ad.proto in ad-server). 
 you will find 3 methods: 
 CreateAd.
 GetAd.
